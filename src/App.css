@@ -1,0 +1,162 @@
+/* Colores principales */
+:root {
+  --white-color: #ffffff;
+  --yellow-color: #e9c913;
+  --orange-color: #046fa0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--white-color);
+  color: var(--orange-color);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+header {
+  background-color: var(--orange-color);
+  color: var(--white-color);
+  padding: 20px;
+  width: 100%;
+}
+
+header > h1 {
+  color: var(--white-color);
+  font-size: 2rem;
+  margin: 20px 0;
+}
+
+header > nav > a {
+  color: var(--orange-color);
+  font-size: 1.5rem;
+  margin: 25px;
+  padding: 15px;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+input{
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid var(--orange-color);
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: var(--orange-color);
+  margin-bottom: 20px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+a {
+  text-decoration: none;
+  color: var(--orange-color);
+  font-weight: bold;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: var(--yellow-color);
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+a:hover {
+  background-color: var(--orange-color);
+  color: var(--white-color);
+}
+
+button {
+  background-color: var(--orange-color);
+  color: var(--white-color);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--yellow-color);
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 800px;
+}
+
+li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid var(--orange-color);
+  border-radius: 8px;
+  background-color: var(--white-color);
+  transition: transform 0.3s ease;
+}
+
+li:hover {
+  transform: scale(1.05);
+}
+
+img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: var(--orange-color);
+  margin: 10px 0;
+}
+
+p {
+  color: var(--orange-color);
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+button, a {
+  text-align: center;
+}
+
+div > p {
+  margin: 20px 0;
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  li {
+    padding: 10px;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,102 @@
+.channel-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.channel-info {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.channel-info h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.channel-info p {
+  font-size: 16px;
+  color: #666;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #046fa0;
+  padding-bottom: 5px;
+}
+
+.videos-grid,
+.playlists-grid,
+.podcast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.video-card,
+.playlist-card,
+.podcast-card {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-card:hover,
+.playlist-card:hover,
+.podcast-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.video-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.video-card h4 {
+  font-size: 16px;
+  margin-top: 10px;
+  color: #046fa0;
+}
+
+.video-card p {
+  font-size: 14px;
+  color: #666;
+  margin: 5px 0;
+}
+
+.video-card a,
+.video-card .link {
+  display: block;
+  text-align: center;
+  background-color: #e9c913;
+  color: #046fa0;
+  padding: 8px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.video-card a:hover,
+.video-card .link:hover {
+  background-color: #046fa0;
+  color: #e9c913;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .videos-grid,
+  .playlists-grid,
+  .podcast-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}

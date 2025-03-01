@@ -1,0 +1,34 @@
+.perfil-container {
+  background-color: var(--black-color);
+  color: var(--white-color);
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.perfil-container h1 {
+  color: var(--orange-color);
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.perfil-container p {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.perfil-container a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 15px;
+  background-color: var(--orange-color);
+  color: var(--white-color);
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.perfil-container a:hover {
+  background-color: var(--white-color);
+  color: var(--orange-color);
+}
