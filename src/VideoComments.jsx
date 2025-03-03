@@ -23,17 +23,23 @@ const VideoComments = ({ videoId }) => {
 
   return (
     <div>
-      {loading ? <p>Cargando comentarios...</p> : (
+      {loading ? (
+        <p>Cargando comentarios...</p>
+      ) : (
         <ul>
-          {comments.length === 0 ? <p>No hay comentarios disponibles.</p> :
+          {comments.length === 0 ? (
+            <p>No hay comentarios disponibles.</p>
+          ) : (
             comments.map((comment, index) => (
               <li key={index}>
-                <p><strong>{comment.author}</strong> ({comment.publishedText})</p>
+                <p>
+                  <strong>{comment.author}</strong> ({comment.publishedText})
+                </p>
                 <p>{comment.content}</p>
                 <p>👍 {comment.likeCount}</p>
               </li>
             ))
-          }
+          )}
         </ul>
       )}
     </div>

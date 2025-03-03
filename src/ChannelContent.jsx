@@ -10,7 +10,9 @@ const ChannelContent = () => {
     setLoading(true);
 
     try {
-      const res = await fetch(`https://invidious.artemrudenko.com/api/v1/channels/${channelId}`);
+      const res = await fetch(
+        `https://invidious.artemrudenko.com/api/v1/channels/${channelId}`,
+      );
       const data = await res.json();
       setChannelData(data);
     } catch (error) {
@@ -35,16 +37,27 @@ const ChannelContent = () => {
 
       {channelData && (
         <div>
-          <h3>{channelData.author} ({channelData.subCount} suscriptores)</h3>
+          <h3>
+            {channelData.author} ({channelData.subCount} suscriptores)
+          </h3>
           <p>📹 {channelData.videoCount} videos</p>
 
           <h4>Últimos Videos</h4>
           <ul>
             {channelData.latestVideos.map((video) => (
               <li key={video.videoId}>
-                <img src={video.videoThumbnails[0].url} alt={video.title} width="150" />
+                <img
+                  src={video.videoThumbnails[0].url}
+                  alt={video.title}
+                  width="150"
+                />
                 <h5>{video.title}</h5>
-                <a href={`https://www.youtube.com/watch?v=${video.videoId}`} target="_blank">Ver en YouTube</a>
+                <a
+                  href={`https://www.youtube.com/watch?v=${video.videoId}`}
+                  target="_blank"
+                >
+                  Ver en YouTube
+                </a>
               </li>
             ))}
           </ul>
@@ -53,8 +66,15 @@ const ChannelContent = () => {
           <ul>
             {channelData.playlists.map((playlist) => (
               <li key={playlist.playlistId}>
-                <h5>{playlist.title} ({playlist.videoCount} videos)</h5>
-                <a href={`https://www.youtube.com/playlist?list=${playlist.playlistId}`} target="_blank">Ver en YouTube</a>
+                <h5>
+                  {playlist.title} ({playlist.videoCount} videos)
+                </h5>
+                <a
+                  href={`https://www.youtube.com/playlist?list=${playlist.playlistId}`}
+                  target="_blank"
+                >
+                  Ver en YouTube
+                </a>
               </li>
             ))}
           </ul>

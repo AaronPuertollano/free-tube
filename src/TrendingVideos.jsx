@@ -40,12 +40,14 @@ const TrendingVideos = () => {
             <li key={video.videoId}>
               <h3>{video.title}</h3>
               <p>
-                 {video.author} |  {video.viewCount} vistas
+                {video.author} | {video.viewCount} vistas
               </p>
               <p>Publicado el: {formatDate(video.published)}</p>
               <p>Duración: {formatDuration(video.lengthSeconds)} minutos</p>
 
-              <Link to={`/channel/${video.authorId}`} className="channel-link">Ver Canal</Link>
+              <Link to={`/channel/${video.authorId}`} className="channel-link">
+                Ver Canal
+              </Link>
 
               <Link to={`/videos/${video.videoId}`}>Ver Comentarios</Link>
               <a

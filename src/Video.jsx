@@ -11,7 +11,11 @@ const Video = () => {
       <Header />
       <div>
         <h2>🎥 Video: {videoId}</h2>
-        <a href={`https://www.youtube.com/watch?v=${videoId}`} target="_blank" rel="noopener noreferrer">
+        <a
+          href={`https://www.youtube.com/watch?v=${videoId}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Ver en YouTube
         </a>
 

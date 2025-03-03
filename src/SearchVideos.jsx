@@ -10,7 +10,9 @@ const SearchVideos = () => {
     if (!query.trim()) return;
 
     setLoading(true);
-    fetch(`https://invidious.artemrudenko.com/api/v1/search?q=${encodeURIComponent(query)}`)
+    fetch(
+      `https://invidious.artemrudenko.com/api/v1/search?q=${encodeURIComponent(query)}`,
+    )
       .then((res) => res.json())
       .then((data) => {
         setVideos(data);
@@ -39,17 +41,29 @@ const SearchVideos = () => {
         {videos.map((video) => (
           <li key={video.videoId || Math.random()}>
             {video.videoThumbnails && video.videoThumbnails.length > 0 ? (
-              <img src={video.videoThumbnails[0].url} alt={video.title} width="200" />
+              <img
+                src={video.videoThumbnails[0].url}
+                alt={video.title}
+                width="200"
+              />
             ) : (
               <p>Sin imagen</p>
             )}
             <h3>{video.title || "Sin título"}</h3>
-            <p>👤 {video.author || "Desconocido"} | 👀 {video.viewCount || 0} vistas</p>
-            <Link to={`/videos/${video.videoId || ""}`}>
-              Ver Comentarios
+            <p>
+              👤 {video.author || "Desconocido"} | 👀 {video.viewCount || 0}{" "}
+              vistas
+            </p>
+            <Link to={`/channel/${video.authorId}`} className="channel-link">
+              Ver Canal
             </Link>
+            <Link to={`/videos/${video.videoId || ""}`}>Ver Comentarios</Link>
             {video.videoId && (
-              <a href={`https://www.youtube.com/watch?v=${video.videoId}`} target="_blank" rel="noopener noreferrer">
+              <a
+                href={`https://www.youtube.com/watch?v=${video.videoId}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Ver en YouTube
               </a>
             )}

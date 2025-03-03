@@ -19,11 +19,15 @@ const Channel = () => {
       try {
         setLoading(true);
 
-        const channelRes = await fetch(`https://invidious.artemrudenko.com/api/v1/channels/${channelId}`);
+        const channelRes = await fetch(
+          `https://invidious.artemrudenko.com/api/v1/channels/${channelId}`,
+        );
         const channelData = await channelRes.json();
         setChannelInfo(channelData);
 
-        const videosRes = await fetch(`https://invidious.artemrudenko.com/api/v1/channels/${channelId}/videos`);
+        const videosRes = await fetch(
+          `https://invidious.artemrudenko.com/api/v1/channels/${channelId}/videos`,
+        );
         const videosData = await videosRes.json();
 
         console.log("Videos API Response:", videosData);
@@ -33,16 +37,27 @@ const Channel = () => {
         } else if (videosData && videosData.videos) {
           setVideos(videosData.videos.slice(0, 6));
         } else {
-          console.error("Error: videosData no tiene el formato esperado:", videosData);
+          console.error(
+            "Error: videosData no tiene el formato esperado:",
+            videosData,
+          );
           setVideos([]);
         }
 
-        const playlistsRes = await fetch(`https://invidious.artemrudenko.com/api/v1/channels/${channelId}/playlists`);
+        const playlistsRes = await fetch(
+          `https://invidious.artemrudenko.com/api/v1/channels/${channelId}/playlists`,
+        );
         const playlistsData = await playlistsRes.json();
-        setPlaylists(Array.isArray(playlistsData) ? playlistsData.slice(0, 6) : []);
+        setPlaylists(
+          Array.isArray(playlistsData) ? playlistsData.slice(0, 6) : [],
+        );
 
         const podcastsData = Array.isArray(playlistsData)
-          ? playlistsData.filter((playlist) => playlist.title.toLowerCase().includes("podcast")).slice(0, 6)
+          ? playlistsData
+              .filter((playlist) =>
+                playlist.title.toLowerCase().includes("podcast"),
+              )
+              .slice(0, 6)
           : [];
         setPodcasts(podcastsData);
 
@@ -88,7 +103,11 @@ const Channel = () => {
               <p>Publicado el: {formatDate(video.published)}</p>
               <p>Duración: {formatDuration(video.lengthSeconds)} minutos</p>
               <p>👀 {video.viewCount} vistas</p>
-              <a href={`https://www.youtube.com/watch?v=${video.videoId}`} target="_blank" rel="noopener noreferrer">
+              <a
+                href={`https://www.youtube.com/watch?v=${video.videoId}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Ver en YouTube
               </a>
               <Link to={`/videos/${video.videoId}`}>Ver Comentarios</Link>
@@ -104,7 +123,11 @@ const Channel = () => {
             <div key={playlist.playlistId} className="playlist-card">
               <h4>{playlist.title}</h4>
               <p>🎵 {playlist.videoCount} videos</p>
-              <a href={`https://www.youtube.com/playlist?list=${playlist.playlistId}`} target="_blank" rel="noopener noreferrer">
+              <a
+                href={`https://www.youtube.com/playlist?list=${playlist.playlistId}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Ver en YouTube
               </a>
             </div>
@@ -119,7 +142,11 @@ const Channel = () => {
             <div key={playlist.playlistId} className="podcast-card">
               <h4>{playlist.title}</h4>
               <p>🎵 {playlist.videoCount} videos</p>
-              <a href={`https://www.youtube.com/playlist?list=${playlist.playlistId}`} target="_blank" rel="noopener noreferrer">
+              <a
+                href={`https://www.youtube.com/playlist?list=${playlist.playlistId}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Ver en YouTube
               </a>
             </div>
